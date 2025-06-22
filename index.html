@@ -4,10 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Javascript-practice</title>
-    <link rel="stylesheet" href="index.js">
     <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
     
+    
+    <h1 id="myh1"></h1>
+
+<label>radius:</label>
+<input type="text" id="mytext" placeholder="Enter the radius"> <br><br>
+    <button id="mysubmit">submit</button>
+
+    <p id="myP"></p>
+
+<br>
+<div id="BtnContainer">
+<label id="countlabel">0</label>
+<button id="decreaseBtn" class="button">Decrease</button>
+<button id="ResetBtn" class="button">Reset</button>
+<button id="IncreaseBtn" class="button">Increase</button>
+</div>
+
+<br><br><br>
+<button id="myrandom">roll</button>
+<br><br>
+<label id="randomlabel"></label>
+
+<br>
+
+<input type ="checkbox" id="mycheckbox">
+<label for="mycheckbox">Check me</label>
+
+<input type ="radio" id ="radio1">
+<label for="radio">check me too</label>
+<input type ="radio" id ="radio2">
+<label for="radio">hey check me instead</label>
+
+
+<br><br>
+<button id="mychecksubmit">Submit</button>
+<br><br>
+
+<p id="mycheckp"></p>
+<p id="myradiop"></p>
+
+<br><br>
+<form>
+<h1>Temperature conversion</h1>
+<input type="number" id="textBox" value ="0" placeholder="Enter temperature">
+
+<br><br>
+
+<input type="radio" id="toFarenheit" name="unit">
+<label for="toFarenheit">Celsius to Farenheit</label>
+
+<br><br>
+
+<input type="radio" id="toCelcius" name="unit">
+<label for="toCelcius">Farenheit to Celcius</label>
+
+<br><br>
+<button type = "button" onclick="convert()">Convert</button>
+
+<p id="result"></p>
+</form>
+
+<button onclick="startTimer()">START</button>
+<button onclick="clearTimer()">CLEAR</button>
+
+
+    <script src="index.js"></script>
 </body>
 </html>
