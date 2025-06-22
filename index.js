@@ -1108,5 +1108,73 @@ function clearTimer(){
   console.log("CLEARED");
 }
 
+// #49 DIGITAL CLOCK PROGRAM
+
+function updateClock(){
+
+  const now = new Date();
+  const hours = now.getHours().toString().padStart(2, 0);
+  const minutes = now.getMinutes().toString().padStart(2, 0);
+  const seconds = now.getSeconds().toString().padStart(2, 0);
+  const timeString = `${hours}:${minutes}:${seconds}` 
+  document.getElementById("clock").textContent = timeString;
+
+}
+updateClock();
+setInterval(updateClock, 1000);
+
+// #51 export const PI = 3.14;
+
+
+// #52 Synchronous = Executes line by line consecutively in a sequential manner
+//                   Code that waits for an operation to complete.
+
+console.log("Task1 1");
+console.log("Task1 2");
+console.log("Task1 3");
+
+// Asynchronus = Allows multiple operations to be performed concurrently without
+//               waiting, Doesnt block execution flow and continues. 
+// (Callback, Promises, Async/Await)
+
+
+function func1(callback){
+setTimeout(() => {console.log("Task2 1"); callback()}, 0);
+}
+
+function func2(){
+console.log("Task2 2");
+console.log("Task2 3");
+console.log("Task2 4");
+}
+
+func1(func2);
+
+
+// #53 Error = Represents a problem. User input or connection issues
+// try {} = enclose code that might cause an error
+// catch {} = Catch and handle any thrown errors from try{}
+// finally {} = Always executes. Used for clean up (optional)
+
+try {
+  console.log(æ)
+
+}
+catch(error){
+  console.error(error);
+}
+finally{
+  console.log("Execute");
+}
+
+
+console.log("We killed æ!")
+
+
+
+
+
+
+
 
 
