@@ -1,4 +1,5 @@
 
+// All projects go here from now on + ES6 
 // #50 DIGITAL STOPWATCH PROGRAM
 
 const display1 = document.getElementById("display");
@@ -47,16 +48,39 @@ const display1 = document.getElementById("display");
     }
 
 
-    // #51 ES6 Module = An external file that contains reusable code that can be imported
-    //                  into other Javascript files. (Contains variables, functions, classes, etc).
-    // export and import
-    // remember to use type="module" and learn more about it.
+// #51 ES6 Module = An external file that contains reusable code that can be imported
+//                  into other Javascript files. (Contains variables, functions, classes, etc).
+// export and import
+// remember to use type="module" and learn more about it.
 
 
 
-    //import {PI} from "./index.js";
+//import {PI} from "./index.js";
 
-    //console.log(PI);
+//console.log(PI);
+
+// #54 CALCULATOR PROGRAM
+
+
+const displayer = document.getElementById("displayer");
+
+function appendToDisplay(input){
+    displayer.value += input;
+}
+function clearDisplay(){
+    displayer.value = "";
+}
+function calculate(){
+    try{
+        displayer.value = eval(displayer.value);
+    }
+    catch(error){
+        displayer.value = "Error";
+    }
+    
+}
+
+   
 
    
     
