@@ -1170,11 +1170,172 @@ finally{
 
 console.log("We killed æ!")
 
+// #55 DOM = DOCUMENT OBJECT MODEL (A object that represents the page in the web browser)
+// can change the web page dynamically
+
+const usernamer = "Shamikh Pasha";
+const welcomeMsg = document.getElementById("welcome-msg");
+
+welcomeMsg.textContent += usernamer === "" ? `Guest` : usernamer;
+
+
+// #56 element selectors = methods used to target and manipulate HTML elements from DOM.
+
+// 1. document.getElementById() ELEMENT OR NULL
+// 2. document.getElementsByClassName() HTML COLLECTION
+// 3. document.getElementsByTagName() HTML COLLECTION
+// 4. document.querySelector() FIRST ELEMENT OR NULL
+// 5. document.querySelectorAll() NODELIST
+
+// 1
+const myH3 = document.getElementById("myH3");
+myH3.style.backgroundColor = "yellow";
+myH3.style.textAlign = "center";
+
+console.log(myH3);
+
+//const fruities1 = document.getElementsByClassName("fruities");
+
+// 2
+//for(let fruities of fruities1){
+//  fruities.style.backgroundColor = "yellow";
+//}
+
+// Array.from(fruities1).forEach(fruities => {
+//  fruities.style.backgroundColor = "yellow";
+//});
+
+// 3
+
+const h4Elements = document.getElementsByTagName("h4");
+const liElements = document.getElementsByTagName("li");
+
+for(let liElement of liElements){
+  liElement.style.backgroundColor = "lightgreen";
+}
+
+Array.from(h4Elements).forEach(h4Element => {
+  h4Element.style.backgroundColor = "yellow";
+})
+
+
+//h4Elements[1].style.backgroundColor = "yellow";
+
+// 4
+
+const element = document.querySelector(".fruities");
+
+element.style.backgroundColor = "cyan";
+
+// 5
+
+const fruities1 = document.querySelectorAll(".fruities");
+
+fruities1[2].style.backgroundColor = "pink";
+
+
+// #57 DOM navigation = the process of navigating through the
+//                      structure of an HTML document using JS
+
+// .firstElementChild
+// .lastElementChild
+// .nextElementSibling
+// .previousElementSibling
+// .parentElement
+// .children
+
+
+// 1
+
+const ulElements = document.querySelectorAll("ul");
+
+ulElements.forEach(ulElement => {
+  const firstChild = ulElement.firstElementChild;
+  firstChild.style.backgroundColor = "green";
+});
+
+
+// 2
+
+const ulElements1 = document.querySelectorAll("ul");
+
+
+ulElements1.forEach(ulElement1 => {
+  const lastChild = ulElement1.lastElementChild;
+  lastChild.style.backgroundColor = "yellow";
+});
+
+// 3
+
+const element2 = document.getElementById("Thomas");
+const nextSibling = element2.nextElementSibling;
+nextSibling.style.backgroundColor = "blue";
+
+// 4
+
+const element3 = document.getElementById("Lui");
+const prevSibling = element3.previousElementSibling;
+prevSibling.style.backgroundColor = "purple";
+
+
+// 5
+
+const element4 = document.getElementById("Thomas");
+const parent = element4.parentElement;
+parent.style.backgroundColor = "blue";
+
+
+// 6
+
+const element5 = document.getElementById("people3");
+const children = element5.children;
+
+children[1].style.backgroundcolor = "purple";
+
+
+// #58 Add & change HTML 
+
+// STEP 1 CREATE THE ELEMENT
+//const newH1 = document.createElement("h1");
+
+const newListItem = document.createElement("li");
+
+
+// STEP 2 ADD ATTRIBUTES/PROPERTIES
+//newH1.textContent = "I like pizza";
+//newH1.id = "myH1";
+//newH1.style.color = "tomato";
+//newH1.style.textAlign = "center";
+
+newListItem.textContent = "coconut";
+newListItem.id = "coconut";
+newListItem.style.fontWeight = "bold";
+newListItem.style.backgroundColor = "green";
 
 
 
+// STEP 3 APPEND ELEMENT TO DOM
+
+// document.body.append(newH1);
+// document.body.prepend(newH1);
+// document.getElementById("box1").append(newH1);
+// document.getElementById("box1").prepend(newH1);
+//const box2 = document.getElementById("box2");
+//document.body.insertBefore(newH1, box2);
+
+// const boxes = document.querySelectorAll(".box");
+// document.body.insertBefore(newH1, boxes[2]);
+
+// document.getElementById("fruits1").append(newListItem);
+document.getElementById("fruits1").prepend(newListItem);
+
+const orange = document.getElementById("orange");
+document.getElementById("fruits1").insertBefore(newListItem, orange);
 
 
+// REMOVE HTML ELEMENT
 
+// document.getElementById("box1").removeChild(newH1);
+// document.getElementById("fruits1").removeChild(coconut);
 
 
