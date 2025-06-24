@@ -1339,3 +1339,202 @@ document.getElementById("fruits1").insertBefore(newListItem, orange);
 // document.getElementById("fruits1").removeChild(coconut);
 
 
+// #59 Mouse Events = listen for specific events to create interactive
+//                    web pages.
+//                    events: click, mouseover, mouseout
+//                    .addEventListener(event, callback);
+
+
+const myBox = document.getElementById("myBox");
+
+
+
+myBox.addEventListener("click", event => {
+  event.target.style.backgroundColor = "red";
+  event.target.textContent = "Ouch!";
+});
+
+
+myBox.addEventListener("mouseover", event => {
+  event.target.style.backgroundColor = "yellow";
+  event.target.textContent = "Dont do it!";
+});
+
+myBox.addEventListener("mouseout", event => {
+  event.target.style.backgroundColor = "lightgreen";
+  event.target.textContent = "Click me!";
+});
+
+// #60 Key Events
+// events: keydown, keyup
+
+const myBox1 = document.getElementById("myBox1");
+let x1 = 100;
+let y1 = 100;
+const moveAmount = 100;
+
+
+document.addEventListener("keydown", event => {
+  if (event.key.startsWith("Arrow")) {
+
+event.preventDefault();
+
+    switch(event.key) {
+      case "ArrowUp":
+        y1 -= moveAmount;
+        break;
+      case "ArrowDown":
+        y1 += moveAmount;
+        break;
+      case "ArrowLeft":
+        x1 -= moveAmount;
+        break;
+      case "ArrowRight":
+        x1 += moveAmount;
+        break;
+    }
+    myBox1.style.top = `${y1}px`;
+    myBox1.style.left = `${x1}px`;
+  }
+});
+
+document.addEventListener("keydown", event => {
+myBox1.textContent = "walking";
+myBox1.style.backgroundColor = "cyan";
+}); 
+
+document.addEventListener("keyup", event => {
+  myBox1.textContent = "standing";
+  myBox1.style.backgroundColor = "blueviolet";
+}); 
+
+
+
+
+
+// #61 Hide/show HTML
+
+const ShowPicture = document.getElementById("ShowPicture");
+const myImg = document.getElementById("myImg");
+
+
+
+ShowPicture.addEventListener("click", event => {
+  if(myImg.style.visibility === "hidden"){
+    myImg.style.visibility = "visible";
+    ShowPicture.textContent = "Hide";
+  }
+  else{
+    myImg.style.visibility = "hidden";
+    ShowPicture.textContent = "Show";
+  }
+
+})
+
+// #62 NodeLists = Static collection of HTML elements by
+//                 (id, class, element)
+//                 Can be created with querySelectorAll()
+//                 Wont automatically reflect changes
+
+
+let buttons = document.querySelectorAll(".MyButtons");
+
+// Add HTML/CSS PROPERTIES
+
+buttons.forEach(buttons => {
+  //buttons.style.backgroundColor = "green";
+  //buttons.textContent += "J";
+  buttons.classList.add("enabled");
+});
+
+// CLICK event listener
+
+buttons.forEach(button => {
+  button.addEventListener("click", event => {
+    // event.target.style.backgroundColor = "lightgreen";
+    if (event.target.classList.contains("disabled")){
+      event.target.textContent += "J";
+    }
+    else{
+      event.target.classList.replace("enabled", "disabled");
+    }
+  });
+});
+
+// MOUSEOVER + MOSEOUT event listener
+
+
+buttons.forEach(button => {
+  button.addEventListener("mouseover", event => {
+    //event.target.style.backgroundColor = "blue";
+    event.target.classList.toggle("hover");
+  });
+});
+
+buttons.forEach(button => {
+  button.addEventListener("mouseout", event => {
+    //event.target.style.backgroundColor = "green";
+    event.target.classList.toggle("hover");
+  });
+});
+
+// ADD AN ELEMENT
+
+//const newButton = document.createElement("button"); //STEP 1
+//newButton.textContent = "5"; // STEP 2
+//newButton.classList = "MyButtons"; 
+//document.body.appendChild(newButton);  //STEP 3
+
+//buttons = document.querySelectorAll(".MyButtons");
+
+// REMOVE AN ELEMENT
+
+//buttons.forEach(BUTTON => {
+//  BUTTON.addEventListener("click", event => {
+//    event.target.remove();
+//    buttons = document.querySelectorAll(".MyButtons");
+//  });
+//});
+
+
+
+
+// #63 ClassLists = Element property in JS used to interact
+//                  with an elements lsit of CSS classes
+//                  Make reusable classes for many elements
+
+
+// add()
+// remove()
+// toggle(Remove if present, add if not)
+// replace(oldClass, newClass)
+// contains()
+
+
+const myButton1 = document.getElementById("myButton1");
+
+// myButton1.classList.add("enabled");
+// myButton1.classList.remove("enabled");
+
+
+//myButton1.addEventListener("mouseover", event => {
+//  event.target.classList.toggle("hover");
+//});
+
+//myButton1.addEventListener("mouseout", event => {
+//  event.target.classList.toggle("hover");
+//});
+
+
+
+myButton1.classList.add("enabled");
+
+myButton1.addEventListener("click", event => {
+
+  if(event.target.classList.contains("disabled")){
+    event.target.textContent += "A";
+  }
+  else{
+    event.target.classList.replace("enabled", "disabled");
+  }
+});
