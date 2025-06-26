@@ -1538,3 +1538,7 @@ myButton1.addEventListener("click", event => {
     event.target.classList.replace("enabled", "disabled");
   }
 });
+
+
+// #67 Promise = An Object that manages asynchronous operations.
+//               Wrao a orim

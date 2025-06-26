@@ -214,6 +214,9 @@ border: 2px solid blue;
 
 }
 
+
+
+
 .enabled{
   background-color: rgb(0, 166, 255);
   color: white;
@@ -228,4 +231,81 @@ border: 2px solid blue;
 }
 #myH1{
   font-size: 2rem;
+}
+
+
+
+
+#RPS{
+  font-size: 3rem;
+}
+.choices{
+  margin-bottom: 30px;
+}
+.choices button{
+  font-size: 6rem;
+  min-width: 100px;
+  margin: 0 10px;
+  border-radius: 100px;
+  background-color: rgb(24, 122, 197);
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+  border: 2px solid black;
+}
+.choices button:hover{
+  background-color:rgb(0, 166, 255);
+}
+#playerDisplay, #computerDisplay{
+  font-size: 1.5rem;
+}
+#resultDisplay{
+  font-size: 2rem;
+  margin: 30px 0;
+}
+.scoreDisplay{
+  font-size: 2rem;
+}
+.greenText, #playerScoreDisplay{
+color: green;
+}
+.redText, #computerScoreDisplay{
+  color: red;
+}
+
+
+.slider{
+  position: relative;
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+}
+.slider img{
+  width: 100%;
+  display: none;
+}
+img.displaySlide{
+  display: block;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+.slider button{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  padding: 10px 15px;
+  background-color: rgba(0, 0, 0, 0.344);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.prev{
+  left: 0;
+}
+.next{
+  right: 0;
+}
+@keyframes fade {
+  from {opacity: .5}
+  to {opacity: 1}
 }

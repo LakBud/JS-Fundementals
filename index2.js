@@ -81,6 +81,111 @@ function calculate(){
 }
 
    
+// #64 ROCK, PAPER AND SCISSORS PROGRAM
+
+const choices =["rock", "paper", "scissors"];
+const playerDisplay = document.getElementById("playerDisplay");
+const computerDisplay = document.getElementById("computerDisplay");
+const resultDisplay = document.getElementById("resultDisplay");
+const playerScoreDisplay = document.getElementById("playerScoreDisplay");
+const computerScoreDisplay = document.getElementById("computerScoreDisplay");
+let playerScore = 0;
+let computerScore = 0;
+
+function playGame(playerChoice){
+  
+  const computerChoice = choices[Math.floor(Math.random() * 3)];
+  let result = "";
+
+  if(playerChoice === computerChoice){
+    result = "ITS A TIE!";
+  }
+  else{
+    switch(playerChoice){
+      case "rock":
+        result = (computerChoice === "scissors") ? "YOU WIN!" : "YOU LOSE!"
+          break;
+          case "paper":
+          result = (computerChoice === "rock") ? "YOU WIN!" : "YOU LOSE!"
+          break;
+          case "scissors":
+          result = (computerChoice === "paper") ? "YOU WIN!" : "YOU LOSE!"
+          break;
+    }
+  }
+
+  playerDisplay.textContent = `PLAYER: ${playerChoice}`;
+  computerDisplay.textContent = `COMPUTER: ${computerChoice}`;
+  resultDisplay.textContent = result;
+
+  resultDisplay.classList.remove("greenText", "redText");
+
+
+  switch(result){
+    
+    case "YOU WIN!":
+      resultDisplay.classList.add("greenText");
+      playerScore ++;
+      playerScoreDisplay.textContent = playerScore;
+    break;
+    case "YOU LOSE!":
+    resultDisplay.classList.add("redText");
+    computerScore ++;
+    computerScoreDisplay.textContent = computerScore;
+    break;
+  }
+}
+
+
+// #65 IMAGE SLIDER PROJECT
+
+const slides = document.querySelectorAll(".slides img");
+let slideIndex = 0;
+let intervalID = null;
+
+
+document.addEventListener("DOMContentLoaded", initializeSlider);
+
+
+function initializeSlider(){
+
+
+  if(slides.length > 0){
+  slides[slideIndex].classList.add("displaySlide");
+  intervalID = setInterval(nextSlide, 5000);
+  }
+
+}
+
+
+
+function showSlide(index){
+
+  if(index >= slides.length){
+    slideIndex = 0;
+  }
+  else if(index < 0){
+    slideIndex = slides.length - 1;
+  }
+
+  slides.forEach(slide => {
+    slide.classList.remove("displaySlide");
+  });
+  slides[slideIndex].classList.add("displaySlide");
+
+}
+function prevSlide(){
+  clearInterval(intervalID);
+  slideIndex --;
+  showSlide(slideIndex);
+}
+function nextSlide(){
+  slideIndex++;
+  showSlide(slideIndex);
+}
+
+// #66 Avoid callback hell 
+
 
    
     
