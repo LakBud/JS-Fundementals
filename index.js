@@ -1540,5 +1540,203 @@ myButton1.addEventListener("click", event => {
 });
 
 
-// #67 Promise = An Object that manages asynchronous operations.
-//               Wrao a orim
+// #66 Promise = An Object that manages asynchronous operations.
+//               Wrap a Promise Object around {Asynchronous code}
+//               PENDING -> RESOVLED OR REJECTED
+//               new Promise((resolve, reject) => {asynchronous code})
+//               (Avoids callback hell)
+
+
+// DO THESE CHORES IN ORDER
+
+// 1. WALK THE DOG
+// 2. CLEAN THE KITCHEN
+// 3. TAKE OUT THE TRASH
+
+
+function walkDog(){
+
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+
+      const dogWalked = true;
+      if(dogWalked){
+        resolve("You walk the dog.");
+      }
+      else{
+        reject("You DIDNT walk the dog");
+      }
+    });
+  }, 1500);
+}
+
+function cleanKitchen(){
+
+
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+
+      const cleanedKitchen = true;
+      if(cleanedKitchen){
+        resolve("You cleaned the Kitchen.");
+      }
+      else{
+        reject("You DIDNT clean the Kitchen");
+      }
+
+    }, 2500);
+  });
+}
+
+function takeOutTrash(){
+ 
+
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+
+      const takedOutTrash = true;
+      if(takedOutTrash){
+        resolve("You took out the Trash.");
+      }
+      else{
+        reject("You DIDNT take out the Trash");
+      }
+
+
+    }, 1500);
+  });
+}
+
+
+// walkDog()
+//  .then(value => {
+//    console.log(value);
+//    return cleanKitchen();
+//  })
+//  .then(value => {
+//    console.log(value);
+//    return takeOutTrash();
+//  })
+//  .then(value => {
+//    console.log(value);
+//    console.log("You finished all the chores!");
+//  })
+//  .catch(error => console.error(error));
+
+
+// #67 Async/Await = Async = makes a function return a promise
+//                   Await = makes an async function wait for a promise
+
+//                   Allows you write asynchronous code in a synchronous manner
+//                   Async doenst have resolve or reject parameters
+//                   Everythin after Await is placed in an event queue
+
+
+
+async function doChores(){
+
+    try{
+      const walkDogResult = await walkDog();
+      console.log(walkDogResult);
+    
+      const cleanKitchenResult = await cleanKitchen();
+      console.log(cleanKitchenResult);
+    
+      const takeOutTrashResult = await takeOutTrash();
+      console.log(takeOutTrashResult);
+    }
+    catch(error){
+      console.error(error);
+    }
+}
+
+doChores();
+
+
+// #68 JSON = (JavaScript Object Notation) Data-interchange format.
+//            Used for exchanging data between server and a web application
+//            JSON files {key:value} or [value1, value2, value3]
+
+//            JSON.stringify() = converts a JS object to a JSON string
+//            JSON.parse() = converts a JSON string to a JS object
+
+const jsonNames = `["Rehan", "Shamikh", "Haroon", "Henrik"]`;
+
+const jsonPerson = `{
+  "name": "Rehan", 
+  "age": 30,
+  "isEmployed": true,
+  "hobbies": ["Jellyfishing", "Karate", "Cooking"]
+}`;
+
+const jsonPeople = `[{
+  "name": "Rehan", 
+  "age": 30,
+  "isEmployed": true
+},
+{
+  "name": "Haroon", 
+  "age": 35,
+  "isEmployed": false
+},
+{
+  "name": "Shamikh", 
+  "age": 15,
+  "isEmployed": true
+},
+{
+  "name": "Henrik", 
+  "age": 31,
+  "isEmployed": true
+}]`;
+
+
+
+// const jsonString = JSON.stringify(people10);
+// const parsedData = JSON.parse(jsonNames);
+
+fetch("people.json")
+  .then(response => response.json())
+  .then(values => values.forEach(value => console.log(value.name)))
+  .catch(error => console.error(error));
+
+
+// #69 fetch = Function used for making HTTP requests to fetch resources.
+//             (JSON STYLE data, images, files)
+//             Simplifies asynchronous data fetching in JavaScript and used for
+//             interacting with APIs to retrieve and send data asynchronously over
+//             the web. 
+
+//             fetch(url, {options: "GET", "POST", "PUT", "DELETE"})
+
+fetchData();
+
+async function fetchData(){
+
+  try{
+
+    const pokemonName = document.getElementById("pokemonName").value.toLowerCase();
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
+  
+  
+    if(!response.ok){
+      throw new Error("Could not fetch recourse")
+    }
+
+    const data = await response.json();
+    const pokemonSprite = data.sprites.front_default;
+    const imgElement = document.getElementById("pokemonSprite");
+
+    imgElement.src = pokemonSprite;
+    imgElement.style.display = "block";
+
+  }
+  catch(error){
+    console.error(error);
+  }
+}
+
+
+
+
+
